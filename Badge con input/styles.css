@@ -1,113 +1,114 @@
 /* Estilos generales */
 body {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    background-color: #ddd; /* Fondo gris */
-    margin: 0;
-    font-family: Arial, sans-serif;
+    display: flex; /* Centrar el contenido horizontalmente */
+    justify-content: center; /* Centrar el contenido horizontalmente */
+    align-items: center; /* Centrar el contenido verticalmente */
+    height: 100vh; /* Usar toda la altura de la pantalla */
+    background-color: #ddd; /* Fondo gris claro */
+    margin: 0; /* Eliminar margen por defecto */
+    font-family: Arial, sans-serif; /* Fuente global */
 }
 
-.button-container {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-
+/* Estilo del botón principal */
 .watchlist-button {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    background-color: #f4f4f4;
-    color: #6a6a6a;
-    font-size: 16px;
-    font-weight: bold;
-    padding: 11px 15px;
-    border-radius: 30px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    position: relative;
-    transition: all 0.4s ease;
-    width: 125px;
-    border: 2px solid transparent;
-    overflow: hidden;
-    min-height: 18px; /* Ajustar la altura mínima */
+    display: flex; /* Usar flexbox para organizar contenido */
+    align-items: center; /* Centrar verticalmente */
+    justify-content: space-between; /* Separar elementos en los extremos */
+    background-color: #f4f4f4; /* Fondo gris claro */
+    color: #6a6a6a; /* Color de texto gris */
+    font-size: 16px; /* Tamaño del texto */
+    font-weight: bold; /* Negrita */
+    padding: 11px 15px; /* Espaciado interno del botón */
+    border-radius: 30px; /* Bordes redondeados */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra ligera */
+    position: relative; /* Posicionamiento para elementos hijos */
+    transition: all 0.4s ease; /* Transiciones suaves */
+    width: 125px; /* Ancho del botón */
+    border: 2px solid transparent; /* Borde transparente inicialmente */
+    overflow: hidden; /* Ocultar contenido que sobresale */
 }
 
-/* Elementos en estado no activo */
+/* Texto y botón en estado normal (no activo) */
 .watchlist-button span:first-of-type {
-    margin-right: 10px;
-    color: #6a6a6a;
-    transition: opacity 0.3s ease;
+    margin-right: 10px; /* Separación a la derecha del texto */
+    color: #6a6a6a; /* Color gris del texto */
+    transition: opacity 0.3s ease; /* Transición suave de opacidad */
 }
 
+/* Estilo del campo de entrada (input) */
 .watchlist-button input {
-    position: absolute;
-    top: 50%;
-    left: 0px;
-    transform: translateY(-50%); /* Centramos verticalmente */
-    width: 100%;
-    padding: 10px 15px;
-    font-size: 16px;
-    background-color: transparent;
-    border: none;
-    outline: none;
-    opacity: 0;
-    pointer-events: none;
-    transition: opacity 0.4s ease;
-    font-weight: bold;
-    min-height: 18px;
+    position: absolute; /* Para superponer el input sobre el botón */
+    top: 50%; /* Centrar verticalmente */
+    left: 0; /* Alinear a la izquierda */
+    transform: translateY(-50%); /* Centrar completamente */
+    width: 100%; /* Tomar todo el ancho del botón */
+    padding: 10px 15px; /* Espaciado interno del input */
+    font-size: 16px; /* Tamaño de texto */
+    background-color: transparent; /* Fondo transparente */
+    border: none; /* Sin borde */
+    outline: none; /* Sin contorno al hacer foco */
+    opacity: 0; /* Invisible por defecto */
+    pointer-events: none; /* No interactuable inicialmente */
+    transition: opacity 0.4s ease; /* Transición de opacidad */
+    font-weight: bold; /* Texto en negrita */
 }
 
-.watchlist-button span:nth-of-type(2), .watchlist-button span:nth-of-type(3) {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 36px;
-    height: 36px;
-    border-radius: 50%; /* Botones redondeados */
-    position: absolute;
-    right: 2px;
-    transition: transform 0.3s ease, opacity 0.3s ease;
-    cursor: pointer;
-}
-
-.watchlist-button span:nth-of-type(2) {
-    background-color: #ddd;
-}
-
+/* Estilo de los iconos */
+.watchlist-button span:nth-of-type(2), 
 .watchlist-button span:nth-of-type(3) {
-    background-color: black;
-    color: white;
-    opacity: 0;
-    pointer-events: none;
-    transform: translateX(20px); /* El botón de tick aparece desde la derecha */
+    display: flex; /* Usar flexbox para centrar los iconos */
+    justify-content: center; /* Centrar horizontalmente */
+    align-items: center; /* Centrar verticalmente */
+    width: 36px; /* Ancho de los botones */
+    height: 36px; /* Alto de los botones */
+    border-radius: 50%; /* Hacer los botones redondos */
+    position: absolute; /* Posicionar dentro del botón principal */
+    right: 2px; /* Alinear a la derecha */
+    transition: transform 0.3s ease, opacity 0.3s ease; /* Transición suave para posición y opacidad */
+    cursor: pointer; /* Hacer el cursor pointer */
 }
 
-/* Elementos en estado activo */
+/* Botón de lápiz (editar) */
+.watchlist-button span:nth-of-type(2) {
+    background-color: #ddd; /* Fondo gris claro */
+}
+
+/* Botón de tick (confirmar) */
+.watchlist-button span:nth-of-type(3) {
+    background-color: black; /* Fondo negro */
+    color: white; /* Texto blanco */
+    opacity: 0; /* Invisible inicialmente */
+    pointer-events: none; /* No interactuable inicialmente */
+    transform: translateX(20px); /* Mover hacia la derecha inicialmente */
+}
+
+/* Estado activo del botón (cuando se activa el input) */
 .watchlist-button.input-active {
-    width: 135px; /* Se agranda al activar la edición */
-    border: 2px solid black;
-    background-color: white;
+    width: 135px; /* Aumentar el ancho del botón */
+    border: 2px solid black; /* Mostrar borde negro */
+    background-color: white; /* Cambiar fondo a blanco */
 }
 
+/* Desaparece el texto inicial cuando se activa el input */
 .watchlist-button.input-active span:first-of-type {
-    opacity: 0; /* Desvanecer el texto al activar el input */
+    opacity: 0; /* Ocultar el texto */
 }
 
+/* Hacer visible el input al activar */
 .watchlist-button.input-active input {
-    opacity: 1;
-    pointer-events: auto; /* Mostrar el input con suavidad */
+    opacity: 1; /* Hacer visible el input */
+    pointer-events: auto; /* Hacer interactuable el input */
 }
 
+/* Ocultar el botón de lápiz al activar */
 .watchlist-button.input-active span:nth-of-type(2) {
-    transform: translateX(20px); /* Mover el lápiz al lado derecho y ocultarlo */
-    opacity: 0;
+    transform: translateX(20px); /* Mover hacia la derecha */
+    opacity: 0; /* Ocultar */
 }
 
+/* Mostrar el botón de tick al activar */
 .watchlist-button.input-active span:nth-of-type(3) {
-    opacity: 1;
-    pointer-events: auto;
-    transform: translateX(0);
+    opacity: 1; /* Hacer visible */
+    pointer-events: auto; /* Hacer interactuable */
+    transform: translateX(0); /* Mover de vuelta a su lugar */
 }
